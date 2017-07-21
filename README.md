@@ -17,6 +17,18 @@ To create the necessary databases, launch postgres, then psql, and run the follo
 * `CREATE TABLE sightings (id serial PRIMARY KEY, animal_id int, location varchar, ranger_name varchar);`
 * `CREATE DATABASE wildlife_tracker_test WITH TEMPLATE wildlife_tracker;`
 
+
+### Changes Made
+
+# Small changes:
+
+- Changed 'false' to 'true' for two Animal tests.
+- Removed unnecessary endangered (never used), name and id (not DRY) attributes from EndangeredAnimal class.
+
+# Major refactoring:
+
+-
+
 ### License
 
 Copyright (c) 2017 **_MIT License_**
