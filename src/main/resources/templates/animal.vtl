@@ -7,8 +7,11 @@
   <p>To report a sighting, please visit the <a href="/">home page</a>.</p>
 #else
   #foreach($sighting in $animal.getSightings())
-    Location: $sighting.getLocation()
-    Reported by: $sighting.getRangerName()
-    ID: >$sighting.getId()
+  <ul>
+    <li>Location: $sighting.getLocation()</li>
+    <li>Reported by: $sighting.getRangerName()</li>
+    <li>ID: $sighting.getId()</li>
+    <li>_______________________</li>
+  </ul>
   #end
 #end

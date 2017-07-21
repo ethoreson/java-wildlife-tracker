@@ -28,8 +28,8 @@ public class App {
       Sighting sighting = new Sighting(animalIdSelected, latLong, rangerName);
       sighting.save();
       model.put("sighting", sighting);
-      model.put("animals", EndangeredAnimal.all());
-      String animal = EndangeredAnimal.find(animalIdSelected).getName();
+      model.put("animals", Animal.all());
+      String animal = Animal.find(animalIdSelected).getName();
       model.put("animal", animal);
       model.put("template", "templates/success.vtl");
       return new ModelAndView(model, layout);
@@ -90,7 +90,7 @@ public class App {
 
     get("/endangered_animal/:id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      EndangeredAnimal endangeredAnimal = EndangeredAnimal.find(Integer.parseInt(request.params("id")));
+      Animal endangeredAnimal = Animal.find(Integer.parseInt(request.params("id")));
       model.put("endangeredAnimal", endangeredAnimal);
       model.put("template", "templates/endangered_animal.vtl");
       return new ModelAndView(model, layout);

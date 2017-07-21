@@ -32,7 +32,7 @@
     <select name="endangeredAnimalSelected">
       #foreach($animal in $animals)
         #if ($animal.getEndangered() == true)
-          <option value="$endangered_animal.getId()">$animal.getName()</option>
+          <option value="$animal.getId()">$animal.getName()</option>
         #end
       #end
     </select>
@@ -51,8 +51,8 @@
   <a href="/animal/new">Add Animal to Database to Report a Sighting</a>
 #else
   #foreach ($endangeredAnimal in $animals)
-    #if ($animal.getEndangered() == true)
-      <a href="/endangered_animal/$endangeredAnimal.getId()" class="thumbnail">
+    #if ($endangeredAnimal.getEndangered() == true)
+      <a href="/endangered_animal/$animal.getId()" class="thumbnail">
         <h4>$endangeredAnimal.getName()</h4>
         <h4>$endangeredAnimal.getSightings().size() Reported Sighting(s)</h4>
         <p>Click for details</p>
