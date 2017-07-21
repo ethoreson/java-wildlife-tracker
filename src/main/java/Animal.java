@@ -5,10 +5,16 @@ import java.util.List;
 public class Animal {
   public String name;
   public int id;
+  public String health;
+  public String age;
+  public boolean endangered;
 
   public Animal(String name) {
     this.name = name;
     this.id = id;
+    this.health = health;
+    this.age = age;
+    this.endangered = false;
   }
 
   public String getName() {
@@ -17,6 +23,10 @@ public class Animal {
 
   public int getId() {
     return id;
+  }
+
+  public boolean getEndangered() {
+    return endangered;
   }
 
   @Override
@@ -31,9 +41,13 @@ public class Animal {
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO animals (name) VALUES (:name);";
+      String sql = "INSERT INTO animals (name, health, age, endangered) VALUES (:name, :health, :age, :endangered);";
       this.id = (int) con.createQuery(sql, true)
         .addParameter("name", this.name)
+        .addParameter("health", this.health)
+        .addParameter("age", this.age)
+        .addParameter("endangered", this.endangered)
+        .throwOnMappingFailure(false)
         .executeUpdate()
         .getKey();
     }
@@ -43,6 +57,7 @@ public class Animal {
     try(Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM animals;";
       return con.createQuery(sql)
+      .throwOnMappingFailure(false)
         .executeAndFetch(Animal.class);
     }
   }
@@ -52,6 +67,7 @@ public class Animal {
       String sql = "SELECT * FROM animals WHERE id=:id;";
       Animal animal = con.createQuery(sql)
         .addParameter("id", id)
+        .throwOnMappingFailure(false)
         .executeAndFetchFirst(Animal.class);
       return animal;
     }
