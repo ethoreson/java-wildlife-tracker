@@ -39,14 +39,14 @@ public class EndangeredAnimalTest {
   //   assertEquals(true, EndangeredAnimal.all().get(1).equals(secondEndangeredAnimal));
   // }
 
-  @Test
-  public void find_returnsAnimalWithSameId_secondAnimal() {
-    EndangeredAnimal firstEndangeredAnimal = new EndangeredAnimal("Fox", "Healthy", "Young");
-    firstEndangeredAnimal.save();
-    EndangeredAnimal secondEndangeredAnimal = new EndangeredAnimal("Badger", "Okay", "Adult");
-    secondEndangeredAnimal.save();
-    assertEquals(EndangeredAnimal.find(secondEndangeredAnimal.getId()), secondEndangeredAnimal);
-  }
+  // @Test
+  // public void find_returnsAnimalWithSameId_secondAnimal() {
+  //   EndangeredAnimal firstEndangeredAnimal = new EndangeredAnimal("Fox", "Healthy", "Young");
+  //   firstEndangeredAnimal.save();
+  //   EndangeredAnimal secondEndangeredAnimal = new EndangeredAnimal("Badger", "Okay", "Adult");
+  //   secondEndangeredAnimal.save();
+  //   assertEquals(EndangeredAnimal.find(secondEndangeredAnimal.getId()), secondEndangeredAnimal);
+  // }
 
   @Test
   public void update_updatesHealthAttribute_true() {
