@@ -20,12 +20,12 @@ To create the necessary databases, launch postgres, then psql, and run the follo
 # Changes Made
 
 - Changed 'false' to 'true' for two Animal tests.
-- Animal became parent class to EndangeredAnimal.
+- Inheritance: Animal became parent class to EndangeredAnimal.
 - added getter Method for endangered boolean attribute.
 - Added health and age constants
 - added #if blocks in index.vtl to only display endangered or not endangered animals (based off getEndangered())
-- Implemented single table inheritence (see setup instructions above)
-
+- Implemented single table inheritance (see setup instructions above)
+- Added timestamps for sightings
 
 
 ### License
