@@ -46,13 +46,12 @@
 
 
 <h3>Endangered Animal Sightings</h3>
-
 #if ($animals.size() == 0)
   <a href="/animal/new">Add Animal to Database to Report a Sighting</a>
 #else
   #foreach ($endangeredAnimal in $animals)
     #if ($endangeredAnimal.getEndangered() == true)
-      <a href="/endangered_animal/$animal.getId()" class="thumbnail">
+      <a href="/endangered_animal/$endangeredAnimal.getId()" class="thumbnail">
         <h4>$endangeredAnimal.getName()</h4>
         <h4>$endangeredAnimal.getSightings().size() Reported Sighting(s)</h4>
         <p>Click for details</p>
