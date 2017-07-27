@@ -63,16 +63,16 @@ public class EndangeredAnimal extends Animal {
   //   }
   // }
 
-  // public static EndangeredAnimal find(int id) {
-  //   try(Connection con = DB.sql2o.open()) {
-  //     String sql = "SELECT * FROM animals WHERE id=:id;";
-  //     EndangeredAnimal endangeredanimal = con.createQuery(sql)
-  //       .addParameter("id", id)
-  //       .throwOnMappingFailure(false)
-  //       .executeAndFetchFirst(EndangeredAnimal.class);
-  //     return endangeredanimal;
-  //   }
-  // }
+  public static EndangeredAnimal find(int id) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM animals WHERE id=:id;";
+      EndangeredAnimal endangeredanimal = con.createQuery(sql)
+        .addParameter("id", id)
+        .throwOnMappingFailure(false)
+        .executeAndFetchFirst(EndangeredAnimal.class);
+      return endangeredanimal;
+    }
+  }
 
   public void updateHealth(String health) {
     try(Connection con = DB.sql2o.open()) {
